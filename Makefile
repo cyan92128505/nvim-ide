@@ -11,6 +11,7 @@ nvim-ojdk11 = mashmb/nvim-ojdk11:dev
 nvim-ojdk17 = mashmb/nvim-ojdk17:dev
 nvim-python3 = mashmb/nvim-python3:dev
 nvim-ts = mashmb/nvim-ts:dev
+nvim-aoma = aj.dao/nvim-aoma:dev
 
 all-build = build-nvim build-nvim-flutter build-nvim-go build-nvim-jdk8 build-nvim-latex build-nvim-ojdk11 build-nvim-ojdk17 build-nvim-python3 build-nvim-ts
 all-push = push-nvim push-nvim-flutter push-nvim-go push-nvim-jdk8 push-nvim-latex push-nvim-ojdk11 push-nvim-ojdk17 push-nvim-python3 push-nvim-ts
@@ -56,6 +57,10 @@ build-nvim-python3:
 build-nvim-ts:
 	echo "--- Building $(nvim-ts) image ---"
 	cd nvim-ts && docker build -t $(nvim-ts) .
+
+build-nvim-aoma:
+	echo "--- Building $(nvim-aoma) image ---"
+	cd nvim-aoma && podman build -t $(nvim-aoma) .
 
 push-nvim: login
 	echo "--- Pushing $(nvim) image ---"
